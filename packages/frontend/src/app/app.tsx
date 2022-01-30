@@ -1,49 +1,36 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
-import NxWelcome from './nx-welcome';
-
 import { Route, Link } from 'react-router-dom';
 
 export function App() {
   return (
     <>
-      <NxWelcome title="frontend" />
-      <div />
-
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
+      <div role='navigation' className='flex'>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link to="/page-2">Page 2</Link>
+            <Link to='/page-2'>Page 2</Link>
           </li>
         </ul>
       </div>
       <Route
-        path="/"
+        path='/'
         exact
-        render={() => (
+        render={() =>
           <div>
             This is the generated root route.{' '}
-            <Link to="/page-2">Click here for page 2.</Link>
+            <Link to='/page-2'>Click here for page 2.</Link>
           </div>
-        )}
+        }
       />
       <Route
-        path="/page-2"
+        path='/page-2'
         exact
-        render={() => (
+        render={() =>
           <div>
-            <Link to="/">Click here to go back to root page.</Link>
+            <Link to='/'>Click here to go back to root page.</Link>
           </div>
-        )}
+        }
       />
       {/* END: routes */}
     </>

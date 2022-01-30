@@ -1,10 +1,22 @@
 {
   "root": true,
-  "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "ignorePatterns": [
+    "**/*"
+  ],
+  "plugins": [
+    "@nrwl/nx",
+    "unused-imports",
+    "import"
+
+  ],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx"
+      ],
       "rules": {
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
@@ -14,7 +26,9 @@
             "depConstraints": [
               {
                 "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "onlyDependOnLibsWithTags": [
+                  "*"
+                ]
               }
             ]
           }
@@ -22,13 +36,135 @@
       }
     },
     {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
+      "files": [
+        "*.tsx"
+      ],
+      "rules": {
+        "react/jsx-curly-brace-presence": [
+          "error",
+          {
+            "props": "never",
+            "children": "never"
+          }
+        ]
+      }
     },
     {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nrwl/nx/javascript"],
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@nrwl/nx/typescript"
+      ],
+      "rules": {
+        "no-console": "error",
+        "no-extra-parens": "error",
+        "no-loss-of-precision": "error",
+        "no-promise-executor-return": "error",
+        "default-case": "error",
+        "no-alert": "error",
+        "comma-dangle": [
+          "error",
+          "never"
+        ],
+        "array-bracket-spacing": "error",
+        "block-spacing": [
+          "error",
+          "always"
+        ],
+        "brace-style": "error",
+        "comma-spacing": "error",
+        "computed-property-spacing": "error",
+        "indent": [
+          "error",
+          2
+        ],
+        "jsx-quotes": [
+          "error",
+          "prefer-single"
+        ],
+        "key-spacing": "error",
+        "keyword-spacing": "error",
+        "max-depth": "error",
+        "max-len": [
+          "error",
+          {
+            "code": 100,
+            "comments": 150,
+            "tabWidth": 2,
+            "ignoreStrings": true
+          }
+        ],
+        "no-trailing-spaces": "error",
+        "no-unneeded-ternary": "error",
+        "no-whitespace-before-property": "error",
+        "nonblock-statement-body-position": "error",
+        "quotes": [
+          "error",
+          "single"
+        ],
+        "semi": "error",
+        "semi-spacing": "error",
+        "semi-style": "error",
+        "space-before-blocks": "error",
+        "space-in-parens": "error",
+        "arrow-spacing": "error",
+        "no-duplicate-imports": "error",
+        "prefer-arrow-callback": "error",
+        "template-curly-spacing": "error",
+        "prefer-const": "error",
+        "unused-imports/no-unused-imports": "error",
+        "import/named": "off",
+        "import/namespace": "error",
+        "import/default": "error",
+        "import/export": "error",
+        "import/no-named-as-default": "error",
+        "import/no-named-as-default-member": "error",
+        "import/no-mutable-exports": "error",
+        "object-curly-spacing": [
+          "error",
+          "always"
+        ],
+        "no-multi-spaces": "error",
+        // note you must disable the base rule as it can report incorrect errors
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "error"
+        ],
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "external",
+              "internal",
+              [
+                "index",
+                "sibling",
+                "parent",
+                "object"
+              ]
+            ],
+            "pathGroupsExcludedImportTypes": ["builtin"],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "@typescript-eslint/no-explicit-any": "error"
+      }
+    },
+    {
+      "files": [
+        "*.js",
+        "*.jsx"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/javascript"
+      ],
       "rules": {}
     }
   ]
