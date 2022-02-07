@@ -4,7 +4,9 @@
     "dictionaryDefinitions": [],
     "dictionaries": [],
     "words": [
+        "cacheable",
         "clsx",
+        "cssmodule",
         "headlessui",
         "nestjs",
         "nrwl",
